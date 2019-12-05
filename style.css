@@ -1,0 +1,219 @@
+
+html {
+	font-family: Helvetica, sans-serif;
+	color: #363636;
+}
+
+body {
+	margin: 40px;
+}
+
+
+/*_______________ timer clock _________________*/
+
+
+
+#timer_container{
+	position: relative;
+	display: inline-block;
+  	vertical-align: middle;
+  	overflow: hidden;
+  	width: 500px;
+  	margin: 30px 30px 30px 0px;
+  	padding: 10px 20px;
+  	border-radius: 20px;
+  	border: 5px solid #363636;
+  	box-shadow: 0 5px 15px #7f7f7f;
+}
+
+
+#pie {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left:0;
+  border: 50px solid white;
+  box-sizing: border-box;
+  background: conic-gradient(white 100%, red 100%);
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+
+#timer_out {
+	position: absolute;
+	font-size: 2em;
+	font-weight: 600;
+	box-sizing: border-box;
+	top: 30%;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	display: none;
+	text-align: center;
+}
+
+#browser_note {
+	position: absolute;
+	font-size: 1em;
+	font-weight: 600;
+	box-sizing: border-box;
+	padding: 7px;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	display: none;
+	text-align: center;
+	color: #e84d4d;
+}
+
+#timer_count {
+	position: absolute;
+	font-size: 1.5em;
+	font-weight: 600;
+	box-sizing: border-box;
+	bottom: 30%;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	text-align: center;
+}
+
+
+
+
+
+
+/*_______________ timer controls _________________*/
+
+
+#controls_container{
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	left: 30px;
+}
+
+#SetTimer_input {
+	width: 60px;
+	height: 40px;
+	border: 2px solid #363636;
+	display: inline-block;
+	vertical-align: text-bottom;
+	font-size: 2em;
+	padding: 3px;
+}
+
+label {
+	font-size: 1.5em;
+
+}
+
+button {
+	display: inline-block;
+	background-color: white;
+	vertical-align: text-bottom;
+	border: 0px;
+	font-size: 1.5em;
+	padding: 0px 20px;
+	height: 50px;
+	margin: 0px 20px;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+
+.btn_style-start {
+	background-color: #56a256;
+	color: white;
+}
+
+.btn_style-stop {
+	background-color: #c54040 !important;
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*_______________ spotify _________________*/
+
+#spotify_id {
+	margin-top: 40px;
+	padding: 6px 3px;
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: .9em;
+	width: 177px;
+	border: 1px solid  #363636;
+
+}
+
+.spotify_btn {
+	display: inline-block;
+	background-color: white;
+	vertical-align: bottom;
+	border: 1px solid #363636;
+	font-size: .9em;
+	border-radius: 0px;
+	padding: 6px;
+	margin: 0px 0px;
+	height: auto;
+	border: 1px solid  #363636;
+}
+
+
+iframe {
+	display: block;
+	margin-top: 10px;
+	background-color: #dfdfdf;
+	width: 300px;
+	height: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 800px) {
+
+#timer_container{
+  	width: 100%;
+  	margin: 30px 0;
+  	padding: 0;
+}
+
+
+
+#controls_container{
+	left: 0px;
+}
+
+
+#spotify_id {
+	padding: 6px 6px;
+	width: 160px;
+}
+
+.spotify_btn {
+	padding: 6px 9px;
+}
+}
