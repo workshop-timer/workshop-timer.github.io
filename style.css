@@ -11,6 +11,9 @@ body {
 
 /*_______________ timer clock _________________*/
 
+h1 {
+	font-size: 1.5em;
+}
 
 
 #timer_container{
@@ -19,7 +22,7 @@ body {
   	vertical-align: middle;
   	overflow: hidden;
   	width: 500px;
-  	margin: 30px 30px 30px 0px;
+  	margin: 30px 0px;
   	padding: 10px 20px;
   	border-radius: 20px;
   	border: 5px solid #363636;
@@ -91,9 +94,10 @@ body {
 
 #controls_container{
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
 	position: relative;
-	left: 30px;
+	left: 20px;
+	top: 100px;
 }
 
 #SetTimer_input {
@@ -112,14 +116,14 @@ label {
 }
 
 button {
-	display: inline-block;
+	display: block;
 	background-color: white;
 	vertical-align: text-bottom;
 	border: 0px;
 	font-size: 1.5em;
 	padding: 0px 20px;
 	height: 50px;
-	margin: 0px 20px;
+	margin: 20px 0px;
 }
 
 button:hover {
@@ -142,57 +146,6 @@ button:hover {
 
 
 
-
-
-
-
-
-/*_______________ spotify _________________*/
-
-#spotify_id {
-	margin-top: 40px;
-	padding: 6px 3px;
-	display: inline-block;
-	vertical-align: bottom;
-	font-size: .9em;
-	width: 177px;
-	border: 1px solid  #363636;
-
-}
-
-.spotify_btn {
-	display: inline-block;
-	background-color: white;
-	vertical-align: bottom;
-	border: 1px solid #363636;
-	font-size: .9em;
-	border-radius: 0px;
-	padding: 6px;
-	margin: 0px 0px;
-	height: auto;
-	border: 1px solid  #363636;
-}
-
-
-iframe {
-	display: block;
-	margin-top: 10px;
-	background-color: #dfdfdf;
-	width: 300px;
-	height: 300px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 800px) {
 
 #timer_container{
@@ -205,15 +158,14 @@ iframe {
 
 #controls_container{
 	left: 0px;
+	top: 0px;
 }
 
 
-#spotify_id {
-	padding: 6px 6px;
-	width: 160px;
+button {
+	display: inline-block;
+	margin: 0px 20px;
 }
 
-.spotify_btn {
-	padding: 6px 9px;
-}
+
 }

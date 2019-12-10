@@ -23,18 +23,7 @@
 	
 	<input onkeypress="EnterInitTimer()" value="" id="SetTimer_input" maxlength="2" autofocus > <label>Min</label> 
 	<button class="btn_style-start" id="StartTimer_btn">START</button>
-
-	<br>
-	<input id="spotify_id" placeholder="Add Spotify playlist Id...">
-	<button class="spotify_btn" id="spotify_btn">Import</button>
-	<button class="spotify_btn" id="spotify_reset_btn">Reset</button>
-
-
-<audio id="alarm" src="alarm.mp3" ></audio>
-
-
-	<iframe id="spotify_player" src="" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
+	<audio id="alarm" src="alarm.mp3" ></audio>
 
 </div>
 
@@ -50,37 +39,6 @@
 		}
 
 
-
-
-
-	var LocalPlaylist = localStorage.getItem('myPlaylist');
-
-		if (LocalPlaylist) {
-			var New_playlist = 'https://open.spotify.com/embed/playlist/' + LocalPlaylist;
-			document.getElementById('spotify_player').src = New_playlist;
-		} else {
-			SetDefaultSpotify();
-		}
-
-
-	
-	document.getElementById('spotify_btn').addEventListener('click', function() {
-
-			var playlist = document.getElementById('spotify_id').value;
-
-			if (playlist) {
-			var New_playlist = 'https://open.spotify.com/embed/playlist/' + playlist;
-			document.getElementById('spotify_player').src = New_playlist;
-
-			localStorage.setItem('myPlaylist', playlist);
-			document.getElementById('spotify_id').value = '';
-			}
-			
-		});
-		
-	document.getElementById('spotify_reset_btn').addEventListener('click', function() {
-			SetDefaultSpotify();
-		});
 
 
 	function SetDefaultSpotify() {
@@ -140,7 +98,7 @@
 				document.getElementById('StartTimer_btn').innerHTML = StarStopBtn;
 				var time_count_sek = 0;
 
-				document.Interval = setInterval(StartInterval, 1000);
+				document.Interval = setInterval(StartInterval, 10);
 				
 
 				function StartInterval() {
@@ -189,6 +147,8 @@
 	function playAlarm() {
 		var alarm = document.getElementById("myAudio");
 			//alarm.volume = 0.1;
+						alarm.currentTime = 1;
+
 			alarm.play();
 		setTimeout(function() {
 			alarm.pause();
