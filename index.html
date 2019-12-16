@@ -13,7 +13,8 @@
 <div id="timer_container">
 	<div id="timer_out">Time is up</div>
 	<div id="browser_note">You know... this timer works better on Chrome</div>
-	<div id="timer_count">0min 0sek</div>
+	<div id="timer_count">0<span class="count_value" >min </span>0<span class="count_value" >sek </span>
+	</div>
 	<div id="pie"></div>
 	<img id="clock" src="timer.svg" width="100%">
 	
@@ -21,7 +22,7 @@
 
 <div id="controls_container">
 	
-	<input onkeypress="EnterInitTimer()" value="" id="SetTimer_input" maxlength="2" autofocus > <label>Min</label> 
+	<input  value="" id="SetTimer_input" maxlength="2" autofocus > <label>Min</label> 
 	<button class="btn_style-start" id="StartTimer_btn">START</button>
 	<audio id="alarm" src="alarm.mp3" ></audio>
 
@@ -41,21 +42,14 @@
 
 
 
-	function SetDefaultSpotify() {
-		var default_playlist = '5WgW1FD8eOYaY18vGP2tzl';
-
-		document.getElementById('spotify_player').src = 'https://open.spotify.com/embed/playlist/' + default_playlist;
-		localStorage.setItem('myPlaylist', default_playlist);
-		document.getElementById('spotify_id').value = '';
-	}
-
-
-	function EnterInitTimer() {
-		var enterKey = window.event.keyCode;
+document.onkeypress = function() {
+	var enterKey = window.event.keyCode;
 		if (enterKey == 13) {
 			InitTimer();
 		}
-	}
+};
+
+
 
 	document.getElementById('StartTimer_btn').addEventListener('click', function() {
 		InitTimer();
@@ -86,19 +80,22 @@
 	function StartTimer(Timer_Value, time_count_min) {
 		console.log(Timer_Value);
 
+		const pointer = document.getElementById('pie');
 		var StarStopBtn = document.getElementById('StartTimer_btn').innerHTML;
 		 var btn_classlist = document.getElementById("StartTimer_btn");
 
 		if (StarStopBtn == 'START') {
 			StarStopBtn = 'STOP';
 
-				const pointer = document.getElementById('pie');
+				pointer.style.filter = "grayscale(0%)";
+				pointer.style.opacity = "1";
+
 			 	document.getElementById('timer_out').style.display = 'none';
 					btn_classlist.classList.toggle("btn_style-stop");
 				document.getElementById('StartTimer_btn').innerHTML = StarStopBtn;
 				var time_count_sek = 0;
 
-				document.Interval = setInterval(StartInterval, 10);
+				document.Interval = setInterval(StartInterval, 1000);
 				
 
 				function StartInterval() {
@@ -111,11 +108,11 @@
 						time_count_min = time_count_min - 1;
 					}
 
-					var count = time_count_min + 'min ' + time_count_sek + 'sek';
+					var count = time_count_min + '<span class="count_value" >min </span>' + time_count_sek + '<span class="count_value" >sek </span>';
 					document.getElementById('timer_count').innerHTML = count; // timer count
 
 					Timer_Value = Timer_Value + 0.027777777;
-					var NewStatevalue = 'conic-gradient(white ' + Timer_Value + '%, red ' + Timer_Value + '%)';
+					var NewStatevalue = 'conic-gradient(white ' + Timer_Value + '%, #ff3535 ' + Timer_Value + '%)';
 
 					pointer.style.background = NewStatevalue; // turn clock forward
 					console.log(Timer_Value);
@@ -134,11 +131,14 @@
 
 	} else {
 
+
+			pointer.style.filter = "grayscale(100%)";
+			pointer.style.opacity = ".3";
+
 			btn_classlist.classList.toggle("btn_style-stop");
 			clearInterval(document.Interval);
 
-			StarStopBtn = 'START';
-			document.getElementById('StartTimer_btn').innerHTML = StarStopBtn;
+			document.getElementById('StartTimer_btn').innerHTML = 'START';
 		} 
 	
 	}
@@ -146,10 +146,7 @@
 
 	function playAlarm() {
 		var alarm = document.getElementById("myAudio");
-			//alarm.volume = 0.1;
-						alarm.currentTime = 1;
-
-			alarm.play();
+		alarm.play();
 		setTimeout(function() {
 			alarm.pause();
 		}, 5000);

@@ -21,12 +21,13 @@ h1 {
 	display: inline-block;
   	vertical-align: middle;
   	overflow: hidden;
+  	box-sizing: border-box;
   	width: 500px;
   	margin: 30px 0px;
   	padding: 10px 20px;
   	border-radius: 20px;
-  	border: 5px solid #363636;
-  	box-shadow: 0 5px 15px #7f7f7f;
+  	border: 15px solid #363636;
+  	box-shadow: 0 5px 15px #4c4c4c;
 }
 
 
@@ -74,7 +75,7 @@ h1 {
 
 #timer_count {
 	position: absolute;
-	font-size: 1.5em;
+	font-size: 2rem;
 	font-weight: 600;
 	box-sizing: border-box;
 	bottom: 30%;
@@ -85,8 +86,9 @@ h1 {
 }
 
 
-
-
+.count_value {
+	font-size: 1.5rem;
+}
 
 
 /*_______________ timer controls _________________*/
@@ -110,6 +112,11 @@ h1 {
 	padding: 3px;
 }
 
+
+#SetTimer_input:focus {
+    outline: -webkit-focus-ring-color auto 0px !important;
+}
+
 label {
 	font-size: 1.5em;
 
@@ -130,6 +137,10 @@ button:hover {
 	cursor: pointer;
 }
 
+
+button:focus {
+    outline: -webkit-focus-ring-color auto 0px !important;
+}
 
 .btn_style-start {
 	background-color: #56a256;
@@ -152,6 +163,7 @@ button:hover {
   	width: 100%;
   	margin: 30px 0;
   	padding: 0;
+  	box-sizing: border-box;
 }
 
 
